@@ -2,17 +2,14 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  let title="Hello";
-  let list=["Delhi","Calcutta","Mumbai","lonavala"]
-
+  
+  let myFun=()=>{
+    alert("Event is called");
+  }
   return (
     <div>
-      <h1>{title}</h1>
-      <ul>
-       {list.map((item)=>{
-            return <h1>{item}</h1>;
-       })}
-       </ul>
+      <h1>Event Demo</h1>
+      <input type="button" value="Click Me" onClick={myFun} />
     </div>
   );
 }
