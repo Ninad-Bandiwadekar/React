@@ -1,26 +1,22 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  let list=["hello"];
-  
-  let myFun=()=>{
-    list.push("Hello");
+  //Stateless member
+ let counter=100;
 
-    console.log(list);
-    
-  }
+ let increment=()=>{
+   counter+=1;
 
-  //View
-  //react is unaware of the changes of local variable
+   console.log(counter);
+ }
+
   return (
     <div>
-      <h1>Working With Event and List</h1>
-      <input type="button" value="Click Me" onClick={myFun} />   
-
-       {list.map((item)=>{             ///map to retrive data
-          return <h3>{item}</h3>;
-       })}      
+      <h1 className="bg-dark text-light p-3">Statless Does not Update Ui</h1>
+       {counter}
+       <input type="button" value="Increment" onClick={increment}/>
     </div>
   );
 }
