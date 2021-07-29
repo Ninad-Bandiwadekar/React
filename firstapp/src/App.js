@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 
+
 function App() {
   //Stateless member
   let [counter, setCounter] = useState(100);
@@ -28,7 +29,7 @@ function App() {
 
       <input type="button" value="Add New List" onClick={addNewElement} />
       {list.map((item) => {
-        return <h1>{item}</h1>;
+        return <h1 className="bg-info text-light my-1 p-3 h4">{item}</h1>;
       })}
     </div>
   );
