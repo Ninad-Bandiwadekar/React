@@ -8,7 +8,18 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 export default function App() {
   return (
     <BrowserRouter>
-      <Link to="/page1">
+      <NavMenu/>
+      <Route exact={true} path="/page1" component={Page1} />
+      <Route exact={true} path="/page2" component={Page2} />
+      <Route exact={true} path="/page3" component={Page3} />
+      <Route exact={true} path="/hw" component={HelloWorld} />
+      <Route exact={true} path="/" component={Page1} />
+    </BrowserRouter>
+  );
+}
+function NavMenu(){ return(
+  <div>
+<Link to="/page1">
         <h1>Page1</h1>
       </Link>
       <Link to="/page2">
@@ -20,14 +31,9 @@ export default function App() {
       <Link to="/hw">
         <h1>HelloWorld</h1>
       </Link>
-      <Route exact={true} path="/page1" component={Page1} />
-      <Route exact={true} path="/page2" component={Page2} />
-      <Route exact={true} path="/page3" component={Page3} />
-      <Route exact={true} path="/hw" component={HelloWorld} />
-      <Route exact={true} path="/" component={Page1} />
-    </BrowserRouter>
-  );
-}
+      </div>
+)}
+
 function Page1() {
   return (
     <div>
