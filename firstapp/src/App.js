@@ -2,21 +2,26 @@ import "./App.css";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-//we are creating user define tag
-//<App/>- it should be mentioned like these
-/*
-when finction is returning tag it is a user define tag
 
-pre define tag
-<h1></h1>
-<a>
-*/
 
 export default function App() {
   return (
-    <div></div>
+    <div>
+      <HelloWorld/>
+      <HelloWorld/>
+
+      <HelloUniverse/>
+    </div>
   )
     
+
+  //Tags :: Componenets::FOllow PAscal Case Convention
+  function HelloWorld(){
+    return <h1>Hello World</h1>;
+  }
   
+  function HelloUniverse(){
+    return <h1>Hello Universe</h1>
+  }
 }
 //export default App;
