@@ -30,7 +30,7 @@ function App() {
 
       <input type="button" value="Add New List" onClick={addNewElement} />
       {list.map((item) => {
-        return <h1 className="bg-info text-light my-1 p-3 h4">{item}</h1>;
+        return <h1 className="bg-success text-light my-1 p-3 h4">{item}</h1>;
       })}
     </div>
   );
