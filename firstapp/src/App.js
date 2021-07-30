@@ -39,6 +39,11 @@ function MyRegisterComponent() {
     };
     const newUserList=[newUser,...userList];
     setUserList(newUserList);
+
+    setUsername("");
+    setPassword("");
+     
+
   }
 
   return (
@@ -110,7 +115,7 @@ function MyRegisterComponent() {
           <tr>
             <td>{item.id}</td>
             <td>{item.name}</td>
-            <td>{item.password}</td>
+            <td>*******</td>
             <td>{item.email}</td>
             <td>{item.mobile}</td>
           </tr>
