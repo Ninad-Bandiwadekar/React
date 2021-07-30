@@ -20,9 +20,9 @@ function MyComponent() {
       <h1>hello</h1>
 
       <input type="button" value="Click Me" onClick={handleClick} />
-      <input type="button" value="Click Me" onClick={(e) => clickHandler(e)} />
+      <input type="button" value="Click Me1" onClick={(e) => handleClick(e)} />
 
-      <input type="button" value="Click Me" onClick={(e) => clickHandler()} />
+      <input type="button" value="Click Me2" onClick={(e) => handleClick(e,100)} />
     </div>
   );
 }
