@@ -2,6 +2,7 @@
 import "./App.css";
 import { useState } from "react";
 import axios from "axios";
+import useState from "react";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
 
 function MyRegisterComponent() {
   
+  const [list,setList]=useState([]);
   const Ajaxcal=async ()=>{
 
     const url="https://jsonplaceholder.typicode.com/users";
@@ -24,6 +26,10 @@ function MyRegisterComponent() {
     <h1>Lets connect to Backend</h1>
 
     <input type="button" value="Make Ajax call" onClick={Ajaxcal}/>
+
+    {list.map((item)=>{
+      return <div>{item.name}</div>
+    })}
   </div>
  
 
