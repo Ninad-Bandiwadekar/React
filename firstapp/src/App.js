@@ -13,16 +13,29 @@ export default function App() {
 function MyRegisterComponent() {
  
   let [userList,setUserList]=useState([
-    {id:1,name:"rahul",email:"rahul@gmail.com",mobile:"2121"},
-    {id:2,name:"sachin",email:"sachin@gmail.com",mobile:"1121"},
+    // {id:1,name:"rahul",email:"rahul@gmail.com",mobile:"2121"},
+    // {id:2,name:"sachin",email:"sachin@gmail.com",mobile:"1121"},
   ]);
+
+  const [username,setUsername]=useState("");
+  const [password,setPassword]=useState("");
+  const [email,setEmail]=useState("");
+  const [mobile,setMobile]=useState("");
+
+  const usernameChangeHandler=(e)=>setUsername(e.target.value);
+  const pswdChangeHandler=(e)=>setPassword(e.target.value);
+  const emailChangeHandler=(e)=>setEmail(e.target.value);
+  const mobileChangeHandler=(e)=>setMobile(e.target.value);
+
+
 
   const addNewUser=()=>{
     const newUser={
       id:userList.length+1,
-      name:"Sample",
-      email:"sample@gmail.com",
-      mobile:"98176",
+      name:username,
+      password:password,
+      email:email,
+      mobile:mobile,
     };
     const newUserList=[newUser,...userList];
     setUserList(newUserList);
@@ -39,6 +52,7 @@ function MyRegisterComponent() {
             type="text"
             className="form-control form-control-lg mb-1"
             placeholder="Enter username"
+            onChange={usernameChangeHandler}
           />
         </div>
 
@@ -47,6 +61,7 @@ function MyRegisterComponent() {
             type="password"
             className="form-control form-control-lg mb-1"
             placeholder="Enter Passwword"
+            onChange={pswdChangeHandler}
           />
         </div>
 
@@ -55,6 +70,7 @@ function MyRegisterComponent() {
             type="email"
             className="form-control form-control-lg mb-1"
             placeholder="Enter Email"
+            onChange={emailChangeHandler}
           />
         </div>
 
@@ -63,6 +79,7 @@ function MyRegisterComponent() {
             type="mobile"
             className="form-control form-control-lg mb-1"
             placeholder="Enter Mobile"
+            onChange={mobileChangeHandler}
           />
         </div>
 
@@ -91,11 +108,11 @@ function MyRegisterComponent() {
          {userList.map((item)=>{
           return(
           <tr>
-            <td>1</td>
-            <td>Rahul</td>
-            <td>@#@#@#@#</td>
-            <td>rahul@mgmil.com</td>
-            <td>121212</td>
+            <td>{item.id}</td>
+            <td>{item.name}</td>
+            <td>{item.password}</td>
+            <td>{item.email}</td>
+            <td>{item.mobile}</td>
           </tr>
           );
          })}
