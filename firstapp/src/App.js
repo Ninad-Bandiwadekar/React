@@ -36,6 +36,14 @@ function MyComponent() {
 
   }
 
+const handleKeyEvent=(e)=>{
+  // console.log(e.key,e.keyCode);  //to find key code
+  if(e.keyCode==13){  //key code of enter
+    // console.log("User has pressed entered")
+   postYourThought();   //calling the function
+  }
+}
+
   return (
     <div className="m-2">
       <h1>Work With Mini Facebook</h1>
@@ -47,6 +55,7 @@ function MyComponent() {
         className="form-control form-control-lg my-2"
         value={thought} //2
         onChange={handleInputChange}  //3
+        onKeyDown={handleKeyEvent}  //Enter-1
       />
       <input
         type="button"
