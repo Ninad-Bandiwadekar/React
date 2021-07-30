@@ -1,5 +1,6 @@
-import logo from "./logo.svg";
+
 import "./App.css";
+import { useState } from "react";
 
 export default function App() {
   return (
@@ -10,6 +11,23 @@ export default function App() {
 }
 
 function MyRegisterComponent() {
+ 
+  let [userList,setUserList]=useState([
+    {id:1,name:"rahul",email:"rahul@gmail.com",mobile:"2121"},
+    {id:2,name:"sachin",email:"sachin@gmail.com",mobile:"1121"},
+  ]);
+
+  const addNewUser=()=>{
+    const newUser={
+      id:userList.length+1,
+      name:"Sample",
+      email:"sample@gmail.com",
+      mobile:"98176",
+    };
+    const newUserList=[newUser,...userList];
+    setUserList(newUserList);
+  }
+
   return (
     <div>
       <h1 className="bg-dark text-light p-3 ">User Registeation </h1>
@@ -52,6 +70,7 @@ function MyRegisterComponent() {
           <input
             type="button"
             value="Register"
+            onClick={addNewUser}
             className="btn btn-lg btn-secondary w-100"
           />
         </div>
@@ -69,7 +88,8 @@ function MyRegisterComponent() {
           </tr>
         </thead>
         <tbody>
-         
+         {userList.map((item)=>{
+          return(
           <tr>
             <td>1</td>
             <td>Rahul</td>
@@ -77,6 +97,8 @@ function MyRegisterComponent() {
             <td>rahul@mgmil.com</td>
             <td>121212</td>
           </tr>
+          );
+         })}
         </tbody>
       </table>
     </div>
