@@ -1,8 +1,7 @@
 
 import "./App.css";
-import { useState } from "react";
 import axios from "axios";
-import { useEffect } from "react/cjs/react.production.min";
+import { useEffect, useState } from "react";
 
 
 export default function App() {
@@ -25,6 +24,7 @@ function MyRegisterComponent() {
   },[]);
 
   const Ajaxcal=async ()=>{
+   
 
     const url="https://jsonplaceholder.typicode.com/users";
     const result=await axios.get(url);
