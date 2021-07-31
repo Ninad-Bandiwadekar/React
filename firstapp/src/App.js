@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function App() {
@@ -26,6 +26,16 @@ function MyRegisterComponent() {
   const emailChangeHandler = (e) => setEmail(e.target.value);
   const mobileChangeHandler = (e) => setMobile(e.target.value);
 
+  // useEffect(() => {
+  //   realAllUser();
+  // }, []);
+
+  // const realAllUser = async () => {
+  //   let url = "http://localhost:4000/user-list";
+  //   const list = await axios.get(url);
+  //   setUserList(list);
+  // };
+
   const addNewUser = async () => {
     const newUser = {
       // id:userList.length+1,
@@ -44,6 +54,8 @@ function MyRegisterComponent() {
     setUsername("");
     setPassword("");
   };
+
+  
 
   return (
     <div>
@@ -114,7 +126,7 @@ function MyRegisterComponent() {
               <tr>
                 {/* <td>{item.id}</td> */}
                 <td>{item.username}</td>
-                <td>*******</td>
+                <td>{item.pswd}</td>
                 <td>{item.email}</td>
                 <td>{item.mobile}</td>
               </tr>
