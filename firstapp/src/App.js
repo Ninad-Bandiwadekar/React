@@ -1,6 +1,6 @@
-
 import "./App.css";
 import { useState } from "react";
+import axios from "axios";
 
 export default function App() {
   return (
@@ -11,40 +11,39 @@ export default function App() {
 }
 
 function MyRegisterComponent() {
- 
-  let [userList,setUserList]=useState([
+  let [userList, setUserList] = useState([
     // {id:1,name:"rahul",email:"rahul@gmail.com",mobile:"2121"},
     // {id:2,name:"sachin",email:"sachin@gmail.com",mobile:"1121"},
   ]);
 
-  const [username,setUsername]=useState("");
-  const [password,setPassword]=useState("");
-  const [email,setEmail]=useState("");
-  const [mobile,setMobile]=useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
 
-  const usernameChangeHandler=(e)=>setUsername(e.target.value);
-  const pswdChangeHandler=(e)=>setPassword(e.target.value);
-  const emailChangeHandler=(e)=>setEmail(e.target.value);
-  const mobileChangeHandler=(e)=>setMobile(e.target.value);
+  const usernameChangeHandler = (e) => setUsername(e.target.value);
+  const pswdChangeHandler = (e) => setPassword(e.target.value);
+  const emailChangeHandler = (e) => setEmail(e.target.value);
+  const mobileChangeHandler = (e) => setMobile(e.target.value);
 
-
-
-  const addNewUser=()=>{
-    const newUser={
-      id:userList.length+1,
-      name:username,
-      password:password,
-      email:email,
-      mobile:mobile,
+  const addNewUser = async () => {
+    const newUser = {
+      // id:userList.length+1,
+      username: username,
+      pswd: password,
+      email: email,
+      mobile: mobile,
     };
-    const newUserList=[newUser,...userList];
+    const newUserList = [newUser, ...userList];
     setUserList(newUserList);
+
+    //MAke APi call
+    let url = "http://localhost:4000/user-create";
+    await axios.post(url, { ...newUser });
 
     setUsername("");
     setPassword("");
-     
-
-  }
+  };
 
   return (
     <div>
@@ -102,7 +101,7 @@ function MyRegisterComponent() {
       <table className="table table-dark table-striped m-2">
         <thead>
           <tr>
-            <th scope="col">#ID</th>
+            {/* <th scope="col">#ID</th> */}
             <th scope="col">USERNAME</th>
             <th scope="col">PASSWORD</th>
             <th scope="col">EMAIL</th>
@@ -110,17 +109,17 @@ function MyRegisterComponent() {
           </tr>
         </thead>
         <tbody>
-         {userList.map((item)=>{
-          return(
-          <tr>
-            <td>{item.id}</td>
-            <td>{item.name}</td>
-            <td>*******</td>
-            <td>{item.email}</td>
-            <td>{item.mobile}</td>
-          </tr>
-          );
-         })}
+          {userList.map((item) => {
+            return (
+              <tr>
+                {/* <td>{item.id}</td> */}
+                <td>{item.username}</td>
+                <td>*******</td>
+                <td>{item.email}</td>
+                <td>{item.mobile}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
